@@ -1,0 +1,19 @@
+Multi-objective design algorithm
+inputl: Xtrain <- list containing descriptor or feature vectors of all known materials
+input2: Yrain <- list containing property values vectors of all known materials
+input3: Xsearch <- list containing descriptor or feature vectors of all unmeasured materials
+procedure DESIGN(Xtrain, Ytrain, Xsearch)
+Build a surrogate model, f(Xtrain) = Ytrain
+for all descriptor vectors isearch ∈ Xsearch do
+	Bootstrap the predictions f(irearch) -> g(isearch)
+	Mean value of the predicted distribution,  µ_isearch <- E[g(isearch)]
+	Uncertainty in the predicted distribution,σ_isearch <- sqrt( E[(g(isearch)-µ_isearch])^2)
+	Calculate the Probability of Improvement,P[I] = P[g(isearch) ∈ Region of Improvement]
+	Calculate Improvement, I: I_iseach = Maximum (|µ_isearch -PF|) or  I_iseach = = centroide (|µ_isearch -PF|)
+	Expected Improvement, E[I]_iseach =  I_iseach times P[I_search]
+end for
+	x_selected = isearch ∈ Xsearch such that E[I]_iseach > E[I]_jseach for every jsearch  ∈ Xsearch, i ≠ j
+	return x_selected
+End procedure 
+
+

@@ -1,0 +1,17 @@
+device_settings:
+  use_cuda: False
+
+paths:
+  dataset_directory: input_graph_datasets
+  results_directory: results
+
+model_params:
+  eigen_m_size: 10
+  num_layers: 4
+  layer_sizes: [32, 64, 128, 256]
+
+training_params:
+  epochs: 3
+  min_context_percent: 0.4
+  max_context_percent: 0.9
+  log_interval: 50
